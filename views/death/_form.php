@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Death */
@@ -14,7 +15,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'persons_id')->textInput() ?>
 
-    <?= $form->field($model, 'death_date')->textInput() ?>
+    <?= $form->field($model, 'death_date')->widget(
+        DatePicker::className(), [
+            // inline too, not bad
+            'inline' => false, 
+            // modify template for custom rendering
+            //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+            'clientOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd'
+            ]
+    ]);?>
 
     <?= $form->field($model, 'buried')->textInput(['maxlength' => true]) ?>
 
@@ -38,7 +49,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'parish_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'certificate_date')->textInput() ?>
+    <?= $form->field($model, 'certificate_date')->widget(
+        DatePicker::className(), [
+            // inline too, not bad
+            'inline' => false, 
+            // modify template for custom rendering
+            //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+            'clientOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd'
+            ]
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
         <?= Html::a('Baptize', ['baptism/create'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Confirm', ['confirmation/create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
