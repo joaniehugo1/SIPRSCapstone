@@ -17,7 +17,17 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'bride_persons_id')->textInput() ?>
 
-    <?= $form->field($model, 'married_date')->textInput() ?>
+    <?= $form->field($model, 'married_date')->widget(
+        DatePicker::className(), [
+            // inline too, not bad
+            'inline' => false, 
+            // modify template for custom rendering
+            //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+            'clientOptions' => [
+                'autoclose' => true,
+                'format' => 'dd-mm-yyyy'
+            ]
+    ]);?>
 
     <?= $form->field($model, 'solemnize_by')->textInput(['maxlength' => true]) ?>
 
@@ -43,7 +53,7 @@ use dosamigos\datepicker\DatePicker;
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
-                'format' => 'yyyy-mm-dd'
+                'format' => 'mm-dd-yyyy'
             ]
     ]);?>
 
@@ -55,7 +65,7 @@ use dosamigos\datepicker\DatePicker;
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
-                'format' => 'yyyy-mm-dd'
+                'format' => 'mm-dd-yyyy'
             ]
     ]);?>
 
