@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
+use yii\helpers\ArrayHelper;
+use app\models\Persons;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Persons */
@@ -21,7 +23,7 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'nationality')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'gender')->dropdownList(['M' => 'Male', 'F' => 'Female'], ['prompt' => '--Select Gender--']) ?>
     <?= $form->field($model, 'birth_date')->widget(
         DatePicker::className(), [
             // inline too, not bad

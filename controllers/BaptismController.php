@@ -93,6 +93,7 @@ class BaptismController extends Controller
         $model->persons_id = $id;
         $model->parish_priest = $priest->parish_priest;
         $model->parish_name = "St. Isidore The Farmer Parish";
+        $model->baptism_place = "Tubigon, Bohol";
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }        
