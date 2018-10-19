@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Death;
+use app\models\Priest;
 
 /**
- * DeathSearch represents the model behind the search form of `app\models\Death`.
+ * PriestSearch represents the model behind the search form of `app\models\Priest`.
  */
-class DeathSearch extends Death
+class PriestSearch extends Priest
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class DeathSearch extends Death
     public function rules()
     {
         return [
-            [['id', 'persons_id', 'folio_no', 'book_no', 'page_no', 'parish_priest'], 'integer'],
-            [['death_date', 'buried', 'municipal_cemetery', 'cause_of_death', 'certificate_date', 'parish_name'], 'safe'],
+            [['id'], 'integer'],
+            [['parish_priest', 'priest_role'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class DeathSearch extends Death
      */
     public function search($params)
     {
-        $query = Death::find();
+        $query = Priest::find();
 
         // add conditions that should always apply here
 
@@ -60,19 +60,10 @@ class DeathSearch extends Death
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'persons_id' => $this->persons_id,
-            'death_date' => $this->death_date,
-            'folio_no' => $this->folio_no,
-            'book_no' => $this->book_no,
-            'page_no' => $this->page_no,
-            'certificate_date' => $this->certificate_date,
-            'parish_priest' => $this->parish_priest,
         ]);
 
-        $query->andFilterWhere(['like', 'buried', $this->buried])
-            ->andFilterWhere(['like', 'municipal_cemetery', $this->municipal_cemetery])
-            ->andFilterWhere(['like', 'cause_of_death', $this->cause_of_death])
-            ->andFilterWhere(['like', 'parish_name', $this->parish_name]);
+        $query->andFilterWhere(['like', 'parish_priest', $this->parish_priest])
+            ->andFilterWhere(['like', 'priest_role', $this->priest_role]);
 
         return $dataProvider;
     }

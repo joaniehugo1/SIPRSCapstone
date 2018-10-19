@@ -12,31 +12,30 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="death-index">
 
+    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Death', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-                'id',
-                'persons_id',
-                'death_date',
-                'buried',
-                // 'municipal_cemetery',
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'persons_id',
+            'death_date',
+            'buried',
+            'municipal_cemetery',
             //'cause_of_death',
-            //'receive_the_last_sacrament_of',
-            //'confession_extreme',
-            //'unction_and_holy_vaticum',
-            //'receive_any_sacrament',
             //'folio_no',
             //'book_no',
-            //'page_name',
-            //'parish_name',
+            //'page_no',
             //'certificate_date',
+            //'parish_priest',
+            //'parish_name',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

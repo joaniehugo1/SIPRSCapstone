@@ -3,6 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
+use yii\helpers\ArrayHelper;
+use app\models\Baptism;
+use app\models\Priest;
+use app\models\Persons;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Baptism */
@@ -10,22 +15,25 @@ use dosamigos\datepicker\DatePicker;
 ?>
 
 <div class="baptism-form">
-
+<div class='panel panel-success'>
+            <h1>Person ID: <?= $persons->id ?> | Person Name: <?= $persons->name ?></h1>
+            <h4>Parish Priest: <?= $priest->parish_priest ?></h4>
+        </div>
     <?php $form = ActiveForm::begin(); ?>
+    
+    <?= $form->field($model, 'god_parents')->textArea(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'persons_id')->textInput() ?>
-
-    <?= $form->field($model, 'god_parents')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'officiating_priest')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'parish_priest')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'officiating_priest')->dropDownList(
+        ArrayHelper::map(Priest::find()->all(),'id','parish_priest'),['prompt'=>'Select']
+    ) ?>
 
     <?= $form->field($model, 'book_no')->textInput() ?>
 
     <?= $form->field($model, 'page_no')->textInput() ?>
 
     <?= $form->field($model, 'serial_no')->textInput() ?>
+
+    <?= $form->field($model, 'parish_name')->textInput() ?>
 
     <?= $form->field($model, 'baptism_date')->widget(
         DatePicker::className(), [
@@ -35,7 +43,7 @@ use dosamigos\datepicker\DatePicker;
                 //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
                 'clientOptions' => [
                     'autoclose' => true,
-                    'format' => 'mm-dd-yyyy'
+                    'format' => 'yyyy-mm-dd'
                 ]
         ]);?>
 

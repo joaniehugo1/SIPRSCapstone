@@ -10,7 +10,8 @@ use dosamigos\datepicker\DatePicker;
 ?>
 
 <div class="marriage-form">
-
+        <h1>Person ID: <?= $persons->id ?> | Person Name: <?= $persons->name ?></h1>
+        <h4>Parish Priest: <?= $priest->parish_priest ?></h4>
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'groom_persons_id')->textInput() ?>
@@ -25,13 +26,13 @@ use dosamigos\datepicker\DatePicker;
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
-                'format' => 'dd-mm-yyyy'
+                'format' => 'yyyy-mm-dd'
             ]
     ]);?>
 
     <?= $form->field($model, 'solemnize_by')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sponsors')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'sponsors')->textArea(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'residence')->textInput(['maxlength' => true]) ?>
 
@@ -53,7 +54,7 @@ use dosamigos\datepicker\DatePicker;
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
-                'format' => 'mm-dd-yyyy'
+                'format' => 'yyyy-mm-dd'
             ]
     ]);?>
 
@@ -65,11 +66,9 @@ use dosamigos\datepicker\DatePicker;
             //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
             'clientOptions' => [
                 'autoclose' => true,
-                'format' => 'mm-dd-yyyy'
+                'format' => 'yyyy-mm-dd'
             ]
     ]);?>
-
-    <?= $form->field($model, 'parish_priest')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

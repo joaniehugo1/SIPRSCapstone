@@ -27,23 +27,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'cause_of_death') ?>
 
-    <?php // echo $form->field($model, 'receive_the_last_sacrament_of') ?>
-
-    <?php // echo $form->field($model, 'confession_extreme') ?>
-
-    <?php // echo $form->field($model, 'unction_and_holy_vaticum') ?>
-
-    <?php // echo $form->field($model, 'receive_any_sacrament') ?>
-
     <?php // echo $form->field($model, 'folio_no') ?>
 
     <?php // echo $form->field($model, 'book_no') ?>
 
-    <?php // echo $form->field($model, 'page_name') ?>
-
-    <?php // echo $form->field($model, 'parish_name') ?>
+    <?php // echo $form->field($model, 'page_no') ?>
 
     <?php // echo $form->field($model, 'certificate_date') ?>
+
+    <?php // echo $form->field($model, 'parish_priest') ?>
+
+    <?php // echo $form->field($model, 'parish_name') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

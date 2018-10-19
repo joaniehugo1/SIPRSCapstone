@@ -4,10 +4,14 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Confirmation;
+use app\models\Persons;
+use app\models\Priest;
 use app\models\ConfirmationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use app\components\AccessRule;
 
 /**
  * ConfirmationController implements the CRUD actions for Confirmation model.
@@ -20,6 +24,24 @@ class ConfirmationController extends Controller
     public function behaviors()
     {
         return [
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'ruleConfig' => [
+            //         'class' => AccessRule::className(),
+            //     ],
+            //     'only' => ['index','create','update','delete'],
+            //     'rules'=>[
+            //         [
+            //             'actions'=>['index'],
+            //             'allow' => true,
+            //             'roles' => ['@']
+            //         ],
+            //         [
+            //             'actions' => ['index','delete'],
+            //             'allow' => true,
+            //         ]
+            //     ],
+            // ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -62,16 +84,22 @@ class ConfirmationController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Confirmation();
-
+        $persons = Persons::findOne($id);
+        $priest = Priest::find()->where(['priest_role' => 0])->one();
+        $model->persons_id = $id;
+        $model->parish_name = "St. Isidore Parish";
+        $model->parish_priest = $priest->parish_priest;
+        
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model,'persons' => $persons, 'priest' => $priest
         ]);
     }
 
@@ -82,16 +110,18 @@ class ConfirmationController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $personsId)
     {
         $model = $this->findModel($id);
+        $persons = Persons::find()->where(['id' => $personsId])->one();
+        $priest = Priest::find()->where(['priest_role' => 0])->one();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, 'persons' => $persons, 'priest' => $priest
         ]);
     }
 

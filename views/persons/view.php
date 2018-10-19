@@ -21,8 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Baptize', ['baptism/create'], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Confirm', ['confirmation/create'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Baptize', ['baptism/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Confirm', ['confirmation/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Death', ['death/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Marry', ['marriage/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -38,19 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
             'birth_place',
         ],
     ]) ?>
-
-        
-
-    <div>
-        <table>
-            <tr><th>Persons ID</th></tr>
-            <tr><td><?= $baptism ?></td></tr>
-        </table>
-    </div>
-
-    <?php 
-            $baptismDetails = app\models\Baptism::findOne($baptism);
-            echo $baptismDetails->baptism_date;
-        ?>
-
 </div>

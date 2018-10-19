@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="marriage-update">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'persons' => $persons, 'priest' => $priest
     ]) ?>
 
 </div>

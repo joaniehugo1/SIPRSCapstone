@@ -4,32 +4,26 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\BaptismSearch */
+/* @var $searchModel app\models\PriestSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Baptisms';
+$this->title = 'Priests';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="baptism-index">
+<div class="priest-index">
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
     <p>
+        <?= Html::a('Create Priest', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-
             'id',
-            'persons_id',
-            'god_parents',
-            'officiating_priest',
-            //'parish_priest',
-            //'book_no',
-            //'page_no',
-            //'serial_no',
-            //'baptism_date',
-            //'baptism_place',
-
+            'parish_priest',
+            'priest_role',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

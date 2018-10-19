@@ -15,15 +15,10 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'name') ?>
-
-    <?= $form->field($model, 'fathers_name') ?>
-
-    <?= $form->field($model, 'mothers_name') ?>
-
-    <?= $form->field($model, 'nationality') ?>
+    <?= $form->field($model, 'globalSearch') ?>
+    <!-- <?= $form->field($model, 'name') ?> -->
+    <!-- <?= $form->field($model, 'fathers_name') ?> -->
+    <!-- <?= $form->field($model, 'mothers_name') ?> -->
 
     <?php // echo $form->field($model, 'gender') ?>
 
@@ -33,7 +28,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <!-- <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?> -->
     </div>
 
     <?php ActiveForm::end(); ?>

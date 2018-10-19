@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\Baptism;
+use yii\filters\AccessControl;
+use app\components\AccessRule;
 
 /**
  * PersonsController implements the CRUD actions for Persons model.
@@ -21,6 +23,24 @@ class PersonsController extends Controller
     public function behaviors()
     {
         return [
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'ruleConfig' => [
+            //         'class' => AccessRule::className(),
+            //     ],
+            //     'only' => ['index','create','update','delete'],
+            //     'rules'=>[
+            //         [
+            //             'actions'=>['index'],
+            //             'allow' => true,
+            //             'roles' => ['@']
+            //         ],
+            //         [
+            //             'actions' => ['index','delete'],
+            //             'allow' => true,
+            //         ]
+            //     ],
+            // ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -57,7 +77,6 @@ class PersonsController extends Controller
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'baptism' => $baptism->persons_id,
         ]);
     }
 

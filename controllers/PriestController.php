@@ -3,20 +3,18 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Death;
-use app\models\Persons;
 use app\models\Priest;
-use app\models\DeathSearch;
+use app\models\PriestSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use app\components\AccessRule;
+use yii\filters\AccessControl;
 
 /**
- * DeathController implements the CRUD actions for Death model.
+ * PriestController implements the CRUD actions for Priest model.
  */
-class DeathController extends Controller
+class PriestController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -24,24 +22,6 @@ class DeathController extends Controller
     public function behaviors()
     {
         return [
-            // 'access' => [
-            //     'class' => AccessControl::className(),
-            //     'ruleConfig' => [
-            //         'class' => AccessRule::className(),
-            //     ],
-            //     'only' => ['index','create','update','delete'],
-            //     'rules'=>[
-            //         [
-            //             'actions'=>['index'],
-            //             'allow' => true,
-            //             'roles' => ['@']
-            //         ],
-            //         [
-            //             'actions' => ['index','delete'],
-            //             'allow' => true,
-            //         ]
-            //     ],
-            // ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -52,12 +32,12 @@ class DeathController extends Controller
     }
 
     /**
-     * Lists all Death models.
+     * Lists all Priest models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DeathSearch();
+        $searchModel = new PriestSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -67,7 +47,7 @@ class DeathController extends Controller
     }
 
     /**
-     * Displays a single Death model.
+     * Displays a single Priest model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -80,56 +60,45 @@ class DeathController extends Controller
     }
 
     /**
-     * Creates a new Death model.
+     * Creates a new Priest model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate()
     {
-        $model = new Death();
-        $persons = Persons::find()->where(['id' => $id])->one();
-        $priest = Priest::find()->where(['priest_role' => 0])->one();
-        $model->persons_id = $persons->id;
-        $model->parish_priest = $priest->id;
-        $model->parish_name = "St. Isidore The Farmer Parish";
-        $model->municipal_cemetery = "Tubigon Catholic Cemetery";
-        $model->link('persons', $persons);
-        $model->link('parishPriest', $priest);
-        // $model->municipal_cemetery = $death->municipal_cemetery;
-        
+        $model = new Priest();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model, 'persons' => $persons, 'priest' => $priest
+            'model' => $model,
         ]);
     }
 
     /**
-     * Updates an existing Death model.
+     * Updates an existing Priest model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id, $personsId)
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $persons = Persons::find()->where(['id' => $personsId])->one();
-        $priest = Priest::find()->where(['priest_role' => 0])->one();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
-            'model' => $model, 'persons' => $persons, 'priest' => $priest
+            'model' => $model,
         ]);
     }
 
     /**
-     * Deletes an existing Death model.
+     * Deletes an existing Priest model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -143,15 +112,15 @@ class DeathController extends Controller
     }
 
     /**
-     * Finds the Death model based on its primary key value.
+     * Finds the Priest model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Death the loaded model
+     * @return Priest the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Death::findOne($id)) !== null) {
+        if (($model = Priest::findOne($id)) !== null) {
             return $model;
         }
 

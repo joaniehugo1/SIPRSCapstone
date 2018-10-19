@@ -15,11 +15,14 @@ class PersonsSearch extends Persons
     /**
      * {@inheritdoc}
      */
+
+    public $globalSearch;
+    
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['name', 'fathers_name', 'mothers_name', 'nationality', 'gender', 'birth_date', 'birth_place'], 'safe'],
+            [['name', 'fathers_name', 'mothers_name', 'nationality', 'gender', 'birth_date', 'birth_place','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,17 +61,17 @@ class PersonsSearch extends Persons
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'birth_date' => $this->birth_date,
-        ]);
+        // $query->andFilterWhere([
+        //     'id' => $this->id,
+        //     'birth_date' => $this->birth_date,
+        // ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'fathers_name', $this->fathers_name])
-            ->andFilterWhere(['like', 'mothers_name', $this->mothers_name])
-            ->andFilterWhere(['like', 'nationality', $this->nationality])
-            ->andFilterWhere(['like', 'gender', $this->gender])
-            ->andFilterWhere(['like', 'birth_place', $this->birth_place]);
+        $query->orFilterWhere(['like', 'name', $this->globalSearch])
+            ->orFilterWhere(['like', 'fathers_name', $this->globalSearch])
+            ->orFilterWhere(['like', 'mothers_name', $this->globalSearch])
+            ->orFilterWhere(['like', 'nationality', $this->globalSearch])
+            ->orFilterWhere(['like', 'gender', $this->globalSearch])
+            ->orFilterWhere(['like', 'birth_place', $this->globalSearch]);
 
         return $dataProvider;
     }

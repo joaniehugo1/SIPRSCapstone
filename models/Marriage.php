@@ -25,6 +25,7 @@ use Yii;
  * @property string $parish_priest
  *
  * @property Persons $groomPersons
+ * @property Persons $bridePersons
  */
 class Marriage extends \yii\db\ActiveRecord
 {
@@ -44,11 +45,12 @@ class Marriage extends \yii\db\ActiveRecord
         return [
             [['groom_persons_id', 'bride_persons_id', 'book_no', 'page_no', 'line_no'], 'integer'],
             [['married_date', 'issued_date', 'exhibited_date'], 'safe'],
-            [['solemnize_by', 'residence', 'parish_priest'], 'string', 'max' => 255],
+            [['parish_name', 'solemnize_by', 'residence', 'parish_priest'], 'string', 'max' => 255],
             [['sponsors'], 'string', 'max' => 225],
             [['marriage_license_no'], 'string', 'max' => 100],
             [['issued_place'], 'string', 'max' => 500],
             [['groom_persons_id'], 'exist', 'skipOnError' => true, 'targetClass' => Persons::className(), 'targetAttribute' => ['groom_persons_id' => 'id']],
+            [['bride_persons_id'], 'exist', 'skipOnError' => true, 'targetClass' => Persons::className(), 'targetAttribute' => ['bride_persons_id' => 'id']],
         ];
     }
 
@@ -59,6 +61,7 @@ class Marriage extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'parish_name' => 'Parish Name',
             'groom_persons_id' => 'Groom Persons ID',
             'bride_persons_id' => 'Bride Persons ID',
             'married_date' => 'Married Date',
@@ -82,5 +85,13 @@ class Marriage extends \yii\db\ActiveRecord
     public function getGroomPersons()
     {
         return $this->hasOne(Persons::className(), ['id' => 'groom_persons_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBridePersons()
+    {
+        return $this->hasOne(Persons::className(), ['id' => 'bride_persons_id']);
     }
 }

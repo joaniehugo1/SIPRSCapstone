@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="confirmation-view">
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id, 'personsId' => $model->persons_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'page_no',
             'given_date',
             'parish_priest',
-            'solemnize_by',
         ],
     ]) ?>
 

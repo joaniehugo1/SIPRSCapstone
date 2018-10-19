@@ -12,9 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="death-view">
 
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id, 'personsId' => $model->persons_id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -33,15 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'buried',
             'municipal_cemetery',
             'cause_of_death',
-            'receive_the_last_sacrament_of',
-            'confession_extreme',
-            'unction_and_holy_vaticum',
-            'receive_any_sacrament',
             'folio_no',
             'book_no',
-            'page_name',
-            'parish_name',
+            'page_no',
             'certificate_date',
+            'parish_name',
         ],
     ]) ?>
 

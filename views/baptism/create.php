@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Baptism */
 
@@ -13,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="baptism-create">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'persons' => $persons, 'priest' => $priest
     ]) ?>
 
 </div>

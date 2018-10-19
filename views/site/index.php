@@ -14,7 +14,7 @@
             <div class="icon">
                 <i class="ion ion-person"></i>
             </div>
-            <a href="<?= \yii\helpers\Url::to(['index.php/confirmation']) ?>" class="small-box-footer">
+            <a href="<?= \yii\helpers\Url::to(['']) ?>" class="small-box-footer">
                 Lists <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
@@ -37,7 +37,7 @@
             <div class="icon">
                 <i class="ion ion-person"></i>
             </div>
-            <a href="<?= \yii\helpers\Url::to(['index.php/confirmation']) ?>" class="small-box-footer">
+            <a href="<?= \yii\helpers\Url::to(['']) ?>" class="small-box-footer">
                 Lists <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
@@ -59,33 +59,33 @@
             <div class="icon">
                 <i class="ion ion-person"></i>
             </div>
-            <a href="<?= \yii\helpers\Url::to(['index.php/confirmation']) ?>" class="small-box-footer">
+            <a href="<?= \yii\helpers\Url::to(['']) ?>" class="small-box-footer">
                 Lists <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div>
     <!-- ./col -->
 
-<div class="col-md-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>
-                    4
-                </h3>
+    <div class="col-md-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>
+                        4
+                    </h3>
 
-                <p>
-                    Death
-                </p>
+                    <p>
+                        Death
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person"></i>
+                </div>
+                <a href="<?= \yii\helpers\Url::to(['']) ?>" class="small-box-footer">
+                    Lists <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
-            <div class="icon">
-                <i class="ion ion-person"></i>
-            </div>
-            <a href="<?= \yii\helpers\Url::to(['index.php/confirmation']) ?>" class="small-box-footer">
-                Lists <i class="fa fa-arrow-circle-right"></i>
-            </a>
         </div>
-    </div>
 <?= $this->render('_expand-collapse') ?>
 
 

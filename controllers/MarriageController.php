@@ -6,8 +6,12 @@ use Yii;
 use app\models\Marriage;
 use app\models\MarriageSearch;
 use yii\web\Controller;
+use\app\models\Persons;
+use\app\models\Priest;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use app\components\AccessRule;
 
 /**
  * MarriageController implements the CRUD actions for Marriage model.
@@ -20,6 +24,24 @@ class MarriageController extends Controller
     public function behaviors()
     {
         return [
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'ruleConfig' => [
+            //         'class' => AccessRule::className(),
+            //     ],
+            //     'only' => ['index','create','update','delete'],
+            //     'rules'=>[
+            //         [
+            //             'actions'=>['index'],
+            //             'allow' => true,
+            //             'roles' => ['@']
+            //         ],
+            //         [
+            //             'actions' => ['index','delete'],
+            //             'allow' => true,
+            //         ]
+            //     ],
+            // ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -62,16 +84,22 @@ class MarriageController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Marriage();
-
+        $persons = Persons::findOne($id);
+        $priest = Priest::find()->where(['priest_role' => 0])->one();
+        $model->groom_persons_id = $id;
+        $model->parish_name = "St. Isidore Parish";
+        $model->parish_priest = $priest->parish_priest;
+        
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model,'persons' => $persons, 'priest' => $priest
         ]);
     }
 
@@ -82,16 +110,22 @@ class MarriageController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $groompersonsId, $bridepersonsId)
     {
         $model = $this->findModel($id);
-
+        $bride = Persons::find()->where(['id' => $bridepersonsId])->one();
+        $groom = Persons::find()->where(['id' => $groompersonsId])->one();
+        $priest = Priest::find()->where(['priest_role' => 0])->one();
+        $model->groom_persons_id = $groom->id;
+        $model->bride_persons_id = $bride->id;
+        $model->link('bridePersons', $groom);
+        $model->link('groomPersons', $bride);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, 'persons' => $bride, 'priest' => $priest
         ]);
     }
 

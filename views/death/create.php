@@ -12,9 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="death-create">
 
-
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'persons' => $persons, 'priest' => $priest
     ]) ?>
 
 </div>

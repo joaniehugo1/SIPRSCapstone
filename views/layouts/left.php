@@ -1,11 +1,11 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" style="background-color: #773423">
 
     <section class="sidebar">
 
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/avatar3.png" class="img-circle" alt="User Image"/>
+                <img src="<?= $directoryAsset ?>/img/avatar10.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
                 <p>SIPRS</p>
@@ -36,6 +36,7 @@
                     ['label' => 'Confirmation', 'icon' => 'check', 'url' => ['/confirmation']],
                     ['label' => 'Death', 'icon' => 'bed', 'url' => ['/death']],
                     ['label' => 'Marriage', 'icon' => 'envelope', 'url' => ['/marriage']],
+                    ['label' => 'Priest', 'icon' => 'envelope', 'url' => ['/priest']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

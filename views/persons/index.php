@@ -11,7 +11,7 @@ $this->title = 'Persons';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="persons-index">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
