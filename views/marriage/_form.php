@@ -10,13 +10,7 @@ use dosamigos\datepicker\DatePicker;
 ?>
 
 <div class="marriage-form">
-        <h1>Person ID: <?= $persons->id ?> | Person Name: <?= $persons->name ?></h1>
-        <h4>Parish Priest: <?= $priest->parish_priest ?></h4>
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'groom_persons_id')->textInput() ?>
-
-    <?= $form->field($model, 'bride_persons_id')->textInput() ?>
 
     <?= $form->field($model, 'married_date')->widget(
         DatePicker::className(), [

@@ -15,11 +15,13 @@ class BaptismSearch extends Baptism
     /**
      * {@inheritdoc}
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['id', 'persons_id', 'book_no', 'page_no', 'serial_no'], 'integer'],
-            [['parish_name', 'god_parents', 'officiating_priest', 'parish_priest', 'baptism_date', 'baptism_place'], 'safe'],
+            [['parish_name', 'god_parents', 'officiating_priest', 'parish_priest', 'baptism_date', 'baptism_place','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,19 +60,11 @@ class BaptismSearch extends Baptism
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'persons_id' => $this->persons_id,
-            'book_no' => $this->book_no,
-            'page_no' => $this->page_no,
-            'serial_no' => $this->serial_no,
-            'baptism_date' => $this->baptism_date,
-        ]);
 
-       $query->andFilterWhere(['like', 'god_parents', $this->god_parents])
-            ->andFilterWhere(['like', 'officiating_priest', $this->officiating_priest])
-            ->andFilterWhere(['like', 'parish_priest', $this->parish_priest])
-            ->andFilterWhere(['like', 'baptism_place', $this->baptism_place]);
+       $query->andFilterWhere(['like', 'god_parents', $this->globalSearch])
+         ->andFilterWhere(['like', 'officiating_priest', $this->globalSearch])
+         ->andFilterWhere(['like', 'parish_priest', $this->globalSearch])
+         ->andFilterWhere(['like', 'baptism_place', $this->globalSearch]);
 
         return $dataProvider;
     }

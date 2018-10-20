@@ -62,7 +62,7 @@ class BaptismController extends Controller
 
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
         ]);
     }
 
@@ -86,6 +86,7 @@ class BaptismController extends Controller
      */
     public function actionCreate($id)
     {
+
         $model = new Baptism();
         $persons = Persons::findOne($id);
         $priest = Priest::find()->where(['priest_role' => 0])->one();
@@ -101,6 +102,7 @@ class BaptismController extends Controller
         return $this->render('create', [
             'model' => $model, 'persons' => $persons, 'priest' => $priest
         ]);
+        
     }
 
     /**
@@ -118,6 +120,8 @@ class BaptismController extends Controller
         
         $model->persons_id = $id;
         $model->parish_priest = $priest->parish_priest;
+        $model->parish_name = "St. Isidore The Farmer Parish";
+        $model->baptism_place = "Tubigon, Bohol";
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }

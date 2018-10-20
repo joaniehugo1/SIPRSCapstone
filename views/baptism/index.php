@@ -11,14 +11,12 @@ $this->title = 'Baptisms';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="baptism-index">
-    <p>
-    </p>
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
-
             'id',
             'persons_id',
             'god_parents',

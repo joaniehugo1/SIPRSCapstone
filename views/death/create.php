@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use app\models\Death;
 
 
 /* @var $this yii\web\View */
@@ -12,8 +13,17 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="death-create">
 
-    <?= $this->render('_form', [
-        'model' => $model, 'persons' => $persons, 'priest' => $priest
-    ]) ?>
+    <?php
+        $deathValidation = Death::find()->where(['persons_id' => $persons->id])->count();
+        
+        if ($deathValidation >= 1) {
+           echo "<h1>Persons already have death records.</h1>";
+        }else{
+            echo $this->render('_form', [
+                'model' => $model, 'persons' => $persons, 'priest' => $priest
+            ]);
+        }
+        
+    ?>
 
 </div>

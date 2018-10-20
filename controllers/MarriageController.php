@@ -79,27 +79,39 @@ class MarriageController extends Controller
         ]);
     }
 
+    public function actionPersonSelector() {
+        $model = new Marriage();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['create', 'groom_persons_id' => $model->groom_persons_id, 'bride_persons_id' => $model->bride_persons_id]);
+        }
+
+        return $this->render('person-selector', [
+            'model' => $model,
+        ]);
+    }
+    
     /**
      * Creates a new Marriage model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate($groom_persons_id, $bride_persons_id)
     {
         $model = new Marriage();
-        $persons = Persons::findOne($id);
         $priest = Priest::find()->where(['priest_role' => 0])->one();
-        $model->groom_persons_id = $id;
-        $model->parish_name = "St. Isidore Parish";
         $model->parish_priest = $priest->parish_priest;
-        
+        $model->parish_name = "St. Isidore The Farmer Parish";
+
+        $model->groom_persons_id = $groom_persons_id;
+        $model->bride_persons_id = $bride_persons_id;
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
-            'model' => $model,'persons' => $persons, 'priest' => $priest
+            'model' => $model, 'priest' => $priest
         ]);
     }
 
@@ -118,6 +130,8 @@ class MarriageController extends Controller
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         $model->groom_persons_id = $groom->id;
         $model->bride_persons_id = $bride->id;
+        $model->parish_priest = $priest->parish_priest;
+        $model->parish_name = "St. Isidore The Farmer Parish";
         $model->link('bridePersons', $groom);
         $model->link('groomPersons', $bride);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

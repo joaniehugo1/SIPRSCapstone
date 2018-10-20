@@ -18,6 +18,7 @@ dmstr\web\AdminLteAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body class="login-page">
+<img src="https://i1.trekearth.com/photos/43799/te.jpg" style="display:inline; horizontal-align: top; height:500px;">
 
 <?php $this->beginBody() ?>
 

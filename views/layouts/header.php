@@ -17,7 +17,7 @@ use yii\helpers\Html;
 
         <div class="navbar-custom-menu">
 
-            <ul class="nav navbar-nav" style="background-color: #00FF00">
+            <ul class="nav navbar-nav" style="background-color: #808000">
 
                 <!--  -->
                 <!-- User Account: style can be found in dropdown.less -->

@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'issued_date',
             'exhibited_date',
             'parish_priest',
+            'parish_name',
         ],
     ]) ?>
 

@@ -90,7 +90,7 @@ class ConfirmationController extends Controller
         $persons = Persons::findOne($id);
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         $model->persons_id = $id;
-        $model->parish_name = "St. Isidore Parish";
+        $model->parish_name = "St. Isidore The Farmer Parish";
         $model->parish_priest = $priest->parish_priest;
         
         
@@ -115,6 +115,8 @@ class ConfirmationController extends Controller
         $model = $this->findModel($id);
         $persons = Persons::find()->where(['id' => $personsId])->one();
         $priest = Priest::find()->where(['priest_role' => 0])->one();
+        $model->parish_name = "St. Isidore The Farmer Parish";
+        $model->parish_priest = $priest->parish_priest; 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

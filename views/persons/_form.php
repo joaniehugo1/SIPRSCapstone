@@ -23,7 +23,7 @@ use app\models\Persons;
 
     <?= $form->field($model, 'nationality')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gender')->dropdownList(['M' => 'Male', 'F' => 'Female'], ['prompt' => '--Select Gender--']) ?>
+    <?= $form->field($model, 'gender')->dropdownList(['Male' => 'Male', 'Female' => 'Female'], ['prompt' => '--Select Gender--']) ?>
     <?= $form->field($model, 'birth_date')->widget(
         DatePicker::className(), [
             // inline too, not bad

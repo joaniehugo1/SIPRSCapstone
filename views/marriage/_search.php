@@ -15,13 +15,10 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'groom_persons_id') ?>
-
-    <?= $form->field($model, 'bride_persons_id') ?>
-
-    <?= $form->field($model, 'married_date') ?>
+    <?= $form->field($model, 'globalSearch') ?>
+    <!-- <?= $form->field($model, 'groom_persons_id') ?> -->
+    <!-- <?= $form->field($model, 'bride_persons_id') ?> -->
+    <!-- <?= $form->field($model, 'married_date') ?> -->
 
     <?php // echo $form->field($model, 'solemnize_by') ?>
 
@@ -47,7 +44,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <!-- <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?> -->
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -40,6 +40,8 @@ use app\models\Confirmation;
 
     <?= $form->field($model, 'page_no')->textInput() ?>
 
+    <?= $form->field($model, 'parish_priest')->textInput() ?>
+
     <?= $form->field($model, 'given_date')->widget(
         DatePicker::className(), [
             // inline too, not bad

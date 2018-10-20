@@ -15,11 +15,13 @@ class MarriageSearch extends Marriage
     /**
      * {@inheritdoc}
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['id', 'groom_persons_id', 'bride_persons_id', 'book_no', 'page_no', 'line_no'], 'integer'],
-            [['married_date', 'solemnize_by', 'sponsors', 'residence', 'marriage_license_no', 'issued_place', 'issued_date', 'exhibited_date', 'parish_priest'], 'safe'],
+            [['married_date', 'solemnize_by', 'sponsors', 'residence', 'marriage_license_no', 'issued_place', 'issued_date', 'exhibited_date', 'parish_priest','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,24 +60,10 @@ class MarriageSearch extends Marriage
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'groom_persons_id' => $this->groom_persons_id,
-            'bride_persons_id' => $this->bride_persons_id,
-            'married_date' => $this->married_date,
-            'book_no' => $this->book_no,
-            'page_no' => $this->page_no,
-            'line_no' => $this->line_no,
-            'issued_date' => $this->issued_date,
-            'exhibited_date' => $this->exhibited_date,
-        ]);
-
-        $query ->andFilterWhere(['like', 'solemnize_by', $this->solemnize_by])
-            ->andFilterWhere(['like', 'sponsors', $this->sponsors])
-            ->andFilterWhere(['like', 'residence', $this->residence])
-            ->andFilterWhere(['like', 'marriage_license_no', $this->marriage_license_no])
-            ->andFilterWhere(['like', 'issued_place', $this->issued_place])
-            ->andFilterWhere(['like', 'parish_priest', $this->parish_priest]);
+         $query->orFilterWhere(['like', 'groom_persons_id', $this->globalSearch])
+            ->orFilterWhere(['like', 'bride_persons_id', $this->globalSearch])
+            ->orFilterWhere(['like', 'sponsors', $this->globalSearch])
+            ->orFilterWhere(['like', 'married_date', $this->globalSearch]);
 
         return $dataProvider;
     }

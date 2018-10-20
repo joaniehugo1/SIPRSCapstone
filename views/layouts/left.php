@@ -3,7 +3,7 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel -->
-        <div class="user-panel">
+        <div class="user-panel" style="background-color: #808000">
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/avatar10.jpg" class="img-circle" alt="User Image"/>
             </div>
