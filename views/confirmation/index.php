@@ -11,16 +11,12 @@ $this->title = 'Confirmations';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="confirmation-index">
-
     
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-    </p>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             'id',
             'persons_id',
@@ -33,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'given_date',
             //'parish_priest',
             //'solemnize_by',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

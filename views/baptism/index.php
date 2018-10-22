@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'serial_no',
             //'baptism_date',
             //'baptism_place',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

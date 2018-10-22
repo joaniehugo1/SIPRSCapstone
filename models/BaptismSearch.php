@@ -61,10 +61,8 @@ class BaptismSearch extends Baptism
 
         // grid filtering conditions
 
-       $query->andFilterWhere(['like', 'god_parents', $this->globalSearch])
-         ->andFilterWhere(['like', 'officiating_priest', $this->globalSearch])
-         ->andFilterWhere(['like', 'parish_priest', $this->globalSearch])
-         ->andFilterWhere(['like', 'baptism_place', $this->globalSearch]);
+        $query->orFilterWhere(['like', 'persons_id', $this->globalSearch])
+        ->orFilterWhere(['like', 'god_parents', $this->globalSearch]);
 
         return $dataProvider;
     }

@@ -11,15 +11,14 @@ $this->title = 'Priests';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="priest-index">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Priest', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             'id',
             'parish_priest',

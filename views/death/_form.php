@@ -44,7 +44,7 @@ use app\models\Death;
             ]
     ]); ?>
 
-    <?= $form->field($model, 'cause_of_death')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'cause_of_death')->textInput(['maxlength'=> 90, 'minlength' => 2,'required' =>  true]) ?>
 
     <?= $form->field($model, 'folio_no')->textInput() ?>
 

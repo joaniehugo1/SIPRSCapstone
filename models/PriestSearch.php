@@ -15,11 +15,13 @@ class PriestSearch extends Priest
     /**
      * {@inheritdoc}
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['parish_priest', 'priest_role'], 'safe'],
+            [['parish_priest', 'priest_role','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,12 +60,8 @@ class PriestSearch extends Priest
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-        ]);
 
-        $query->andFilterWhere(['like', 'parish_priest', $this->parish_priest])
-            ->andFilterWhere(['like', 'priest_role', $this->priest_role]);
+        $query->andFilterWhere(['like', 'parish_priest', $this->globalSearch]);
 
         return $dataProvider;
     }

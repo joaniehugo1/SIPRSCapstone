@@ -15,11 +15,13 @@ class DeathSearch extends Death
     /**
      * {@inheritdoc}
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['id', 'persons_id', 'folio_no', 'book_no', 'page_no', 'parish_priest'], 'integer'],
-            [['death_date', 'buried', 'municipal_cemetery', 'cause_of_death', 'certificate_date', 'parish_name'], 'safe'],
+            [['death_date', 'buried', 'municipal_cemetery', 'cause_of_death', 'certificate_date', 'parish_name','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,22 +60,8 @@ class DeathSearch extends Death
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'persons_id' => $this->persons_id,
-            'death_date' => $this->death_date,
-            'folio_no' => $this->folio_no,
-            'book_no' => $this->book_no,
-            'page_no' => $this->page_no,
-            'certificate_date' => $this->certificate_date,
-            'parish_priest' => $this->parish_priest,
-        ]);
 
-        $query->andFilterWhere(['like', 'buried', $this->buried])
-            ->andFilterWhere(['like', 'municipal_cemetery', $this->municipal_cemetery])
-            ->andFilterWhere(['like', 'cause_of_death', $this->cause_of_death])
-            ->andFilterWhere(['like', 'parish_name', $this->parish_name]);
-
+        $query->andFilterWhere(['like', 'death_date', $this->globalSearch]);
         return $dataProvider;
     }
 }

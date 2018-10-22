@@ -4,5 +4,9 @@ $(function(){
         .find('#modalContent')
         .load($(this).attr('value'))
     });
-
+    $('#printModal').click(function(){
+        $('#model').modal('show')
+            .find('#modelContent')
+            .load($(this).attr('value'));
+    });
 });

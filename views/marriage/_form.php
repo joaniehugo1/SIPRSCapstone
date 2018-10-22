@@ -24,11 +24,11 @@ use dosamigos\datepicker\DatePicker;
             ]
     ]);?>
 
-    <?= $form->field($model, 'solemnize_by')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'solemnize_by')->textInput(['maxlength'=> 60, 'minlength' => 2,'required' => true]) ?>
 
-    <?= $form->field($model, 'sponsors')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'sponsors')->textArea(['maxlength', 'required' => true]) ?>
 
-    <?= $form->field($model, 'residence')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'residence')->textInput(['maxlength', 'required' => true]) ?>
 
     <?= $form->field($model, 'book_no')->textInput() ?>
 
@@ -36,9 +36,9 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'line_no')->textInput() ?>
 
-    <?= $form->field($model, 'marriage_license_no')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'marriage_license_no')->textInput(['maxlength', 'required' => true]) ?>
 
-    <?= $form->field($model, 'issued_place')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'issued_place')->textInput(['maxlength', 'required' => true]) ?>
 
     <?= $form->field($model, 'issued_date')->widget(
         DatePicker::className(), [

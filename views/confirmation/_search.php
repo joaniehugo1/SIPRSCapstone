@@ -15,13 +15,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'persons_id') ?>
-
-    <?= $form->field($model, 'confirmation_date') ?>
-
-    <?= $form->field($model, 'rev_monsignor') ?>
+     <?= $form->field($model, 'globalSearch') ?>
 
     <?php // echo $form->field($model, 'sponsors') ?>
 
@@ -39,7 +33,6 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

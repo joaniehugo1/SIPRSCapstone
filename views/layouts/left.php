@@ -36,7 +36,7 @@
                     ['label' => 'Confirmation', 'icon' => 'check', 'url' => ['/confirmation']],
                     ['label' => 'Death', 'icon' => 'bed', 'url' => ['/death']],
                     ['label' => 'Marriage', 'icon' => 'envelope', 'url' => ['/marriage']],
-                    ['label' => 'Priest', 'icon' => 'envelope', 'url' => ['/priest']],
+                    ['label' => 'Priest', 'icon' => 'user', 'url' => ['/priest']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

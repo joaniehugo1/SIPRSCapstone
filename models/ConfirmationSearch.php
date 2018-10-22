@@ -15,11 +15,13 @@ class ConfirmationSearch extends Confirmation
     /**
      * {@inheritdoc}
      */
+    public $globalSearch;
+
     public function rules()
     {
         return [
             [['id', 'persons_id', 'confirmation_no', 'serial_no', 'page_no'], 'integer'],
-            [['parish_name', 'confirmation_date', 'rev_monsignor', 'sponsors', 'given_date', 'parish_priest', 'solemnize_by'], 'safe'],
+            [['parish_name', 'confirmation_date', 'rev_monsignor', 'sponsors', 'given_date', 'parish_priest', 'solemnize_by','globalSearch'], 'safe'],
         ];
     }
 
@@ -58,20 +60,9 @@ class ConfirmationSearch extends Confirmation
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'persons_id' => $this->persons_id,
-            'confirmation_date' => $this->confirmation_date,
-            'confirmation_no' => $this->confirmation_no,
-            'serial_no' => $this->serial_no,
-            'page_no' => $this->page_no,
-            'given_date' => $this->given_date,
-        ]);
 
-        $query->andFilterWhere(['like', 'rev_monsignor', $this->rev_monsignor])
-            ->andFilterWhere(['like', 'sponsors', $this->sponsors])
-            ->andFilterWhere(['like', 'parish_priest', $this->parish_priest])
-            ->andFilterWhere(['like', 'solemnize_by', $this->solemnize_by]);
+        $query->andFilterWhere(['like', 'sponsors', $this->globalSearch]);
+          
 
         return $dataProvider;
     }

@@ -15,13 +15,13 @@ use app\models\Persons;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => 60, 'minlength' => 2,'required' => true]) ?>
 
-    <?= $form->field($model, 'fathers_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'fathers_name')->textInput(['maxlength', 'required' => true    ]) ?>
 
-    <?= $form->field($model, 'mothers_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mothers_name')->textInput(['maxlength', 'required' => true]) ?>
 
-    <?= $form->field($model, 'nationality')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nationality')->textInput(['maxlength', 'required' => true]) ?>
 
     <?= $form->field($model, 'gender')->dropdownList(['Male' => 'Male', 'Female' => 'Female'], ['prompt' => '--Select Gender--']) ?>
     <?= $form->field($model, 'birth_date')->widget(
@@ -36,7 +36,7 @@ use app\models\Persons;
             ]
     ]);?>
 
-    <?= $form->field($model, 'birth_place')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'birth_place')->textInput(['maxlength', 'required' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

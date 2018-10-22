@@ -21,7 +21,7 @@ use app\models\Persons;
         </div>
     <?php $form = ActiveForm::begin(); ?>
     
-    <?= $form->field($model, 'god_parents')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'god_parents')->textArea(['maxlength'=> 1000, 'minlength' => 2,'required' => true]) ?>
 
     <?= $form->field($model, 'officiating_priest')->dropDownList(
         ArrayHelper::map(Priest::find()->all(),'id','parish_priest'),['prompt'=>'Select']

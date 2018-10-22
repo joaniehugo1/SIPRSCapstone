@@ -15,15 +15,12 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'parish_priest') ?>
-
-    <?= $form->field($model, 'priest_role') ?>
+      <?= $form->field($model, 'globalSearch') ?>
+    <!-- <?= $form->field($model, 'parish_priest') ?> -->
+    <!-- <?= $form->field($model, 'priest_role') ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

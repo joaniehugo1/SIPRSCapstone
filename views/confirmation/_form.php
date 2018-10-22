@@ -30,9 +30,9 @@ use app\models\Confirmation;
             ]
     ]);?>
 
-    <?= $form->field($model, 'rev_monsignor')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rev_monsignor')->textInput(['maxlength'=> 60, 'minlength' => 2,'required' =>  true]) ?>
 
-    <?= $form->field($model, 'sponsors')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'sponsors')->textArea(['maxlength', 'required' => true]) ?>
 
     <?= $form->field($model, 'confirmation_no')->textInput() ?>
 
@@ -40,7 +40,7 @@ use app\models\Confirmation;
 
     <?= $form->field($model, 'page_no')->textInput() ?>
 
-    <?= $form->field($model, 'parish_priest')->textInput() ?>
+    <!-- <?= $form->field($model, 'parish_priest')->textInput() ?> -->
 
     <?= $form->field($model, 'given_date')->widget(
         DatePicker::className(), [

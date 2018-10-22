@@ -79,6 +79,11 @@ class BaptismController extends Controller
         ]);
     }
 
+    public function actionPrintModal($id) {
+        $model = Baptism::findOne(['id' => $id]);
+        return $this->render('print-modal', ['model' => $model]);
+    }
+
     /**
      * Creates a new Baptism model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -118,7 +123,6 @@ class BaptismController extends Controller
         $persons = Persons::find()->where(['id' => $personsId])->one();
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         
-        $model->persons_id = $id;
         $model->parish_priest = $priest->parish_priest;
         $model->parish_name = "St. Isidore The Farmer Parish";
         $model->baptism_place = "Tubigon, Bohol";
