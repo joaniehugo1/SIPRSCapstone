@@ -140,6 +140,10 @@ class ConfirmationController extends Controller
 
         return $this->redirect(['index']);
     }
+    public function actionPrintModal($id) {
+        $model = Confirmation::findOne(['id' => $id]);
+        return $this->render('print-modal', ['model' => $model]);
+    }
 
     /**
      * Finds the Confirmation model based on its primary key value.

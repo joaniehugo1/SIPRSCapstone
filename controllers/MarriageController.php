@@ -156,6 +156,10 @@ class MarriageController extends Controller
 
         return $this->redirect(['index']);
     }
+    public function actionPrintModal($id) {
+        $model = Marriage::findOne(['id' => $id]);
+        return $this->render('print-modal', ['model' => $model]);
+    }
 
     /**
      * Finds the Marriage model based on its primary key value.

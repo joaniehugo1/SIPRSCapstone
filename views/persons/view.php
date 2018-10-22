@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Baptize', ['baptism/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Confirm', ['confirmation/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Death', ['death/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Print', ['', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([

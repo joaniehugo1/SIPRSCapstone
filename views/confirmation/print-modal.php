@@ -9,42 +9,19 @@ use yii\helpers\Html;
     <h4 style='text-align: center; margin-top: 1px;'>St.Isidore</h4>
     <h4 style='text-align: center; margin-top: 1px;'>Tubigon,Bohol</h4>
 
-    <!-- <div class='col-sm-6'>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Akong Papa ni </h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>May 28, 1992 </h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>November 1, 2050</h4>
-    </div>
+     <h4 style='text-align: center; margin-top: 50px;'>Keziah Faith Boco</h4>
+    <h4 style='text-align: center; margin-top: 1px;'>Armando Boco</h4>
+
+     <h4 style='text-align: center; margin-top: 1px;'>Rosana Boco</h4>
+    <h4 style='text-align: center; margin-top: 1px;'>12th     March,2017</h4>
+
+     <h4 style='text-align: center; margin-top: 50px;'>Rev.Fr.Tomas Balatayo</h4>
+    <h4 style='text-align: center; margin-top: 1px;'>Rose Marilou</h4>
 
     <div class='col-sm-6'>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Akong Mama ni </h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Pooc Oriental, Tubigon</h4>
+        <h4 style='margin-top: 20px; margin-left: 500px;'>12</h4>
+        <h4 style='margin-top: 20px; margin-left: 800px;'>22nd</h4>
+        <h4 style='margin-top: 20px; margin-left: 200px;'>October   2018</h4>
         <h4 style='margin-top: 20px; margin-left: 200px;'>St. Isidore Parish, Tubigon</h4>
-    </div> -->
-</div>
-
-<div>
-    <!-- <h4 style='text-align: center; margin-top: 1px;'>GodParents</h4>
-
-    <div class='col-sm-6'>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Joanie Hugo</h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Christian Labtan</h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Rose Marilou</h4>
     </div>
-
-    <div class='col-sm-6'>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>James Orfano</h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Jan Rey</h4>
-        <h4 style='margin-top: 20px; margin-left: 200px;'>Bob By</h4>
-    </div> -->
 </div>
-
-<!-- <div>
-    <h4 style='text-align: center; margin-top: 1px;'>Rev.Fr.Alberto Uy</h4>
-</div>
-
-<div>
-        <h4 style='margin-top: 10px; margin-left: 60px;'>Book No. </h4>
-        <h4 style='margin-top: 10px; margin-left: 60px;'>Page No.</h4>
-        <h4 style='margin-top: 10px; margin-left: 60px;'>Serial No.</h4>
-</div> -->
-

@@ -141,6 +141,10 @@ class DeathController extends Controller
 
         return $this->redirect(['index']);
     }
+    public function actionPrintModal($id) {
+        $model = Death::findOne(['id' => $id]);
+        return $this->render('print-modal', ['model' => $model]);
+    }
 
     /**
      * Finds the Death model based on its primary key value.
