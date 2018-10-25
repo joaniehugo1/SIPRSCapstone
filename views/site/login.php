@@ -21,11 +21,11 @@ $fieldOptions2 = [
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b></a>
+        <a href="#"><b>SIPR SYSTEM ADMIN</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Log in to start a session</p>
+        <p class="login-box-msg">Log in to start</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 

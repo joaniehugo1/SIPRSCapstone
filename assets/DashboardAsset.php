@@ -22,6 +22,7 @@ class DashboardAsset extends AssetBundle
     public $css = [
         'css/bootstrap.min.css',
         'css/site.css',
+        'css/print.css'
     ];
 
     public $js = [

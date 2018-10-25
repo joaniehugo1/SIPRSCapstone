@@ -87,14 +87,13 @@ class DeathController extends Controller
     public function actionCreate($id)
     {
         $model = new Death();
+        $persons = Persons::findOne($id);
         $persons = Persons::find()->where(['id' => $id])->one();
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         $model->persons_id = $persons->id;
         $model->parish_priest = $priest->id;
         $model->parish_name = "St. Isidore The Farmer Parish";
         $model->municipal_cemetery = "Tubigon Catholic Cemetery";
-        $model->link('persons', $persons);
-        $model->link('parishPriest', $priest);
         // $model->municipal_cemetery = $death->municipal_cemetery;
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -116,8 +115,10 @@ class DeathController extends Controller
     public function actionUpdate($id, $personsId)
     {
         $model = $this->findModel($id);
+        $model->parish_name = "St. Isidore The Farmer Parish";
         $persons = Persons::find()->where(['id' => $personsId])->one();
         $priest = Priest::find()->where(['priest_role' => 0])->one();
+        $model->parish_priest = $priest->parish_priest;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

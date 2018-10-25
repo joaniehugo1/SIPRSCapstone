@@ -82,7 +82,7 @@ class MarriageController extends Controller
     public function actionPersonSelector() {
         $model = new Marriage();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
             return $this->redirect(['create', 'groom_persons_id' => $model->groom_persons_id, 'bride_persons_id' => $model->bride_persons_id]);
         }
 

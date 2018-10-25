@@ -5,6 +5,7 @@ use yii\helpers\Html;
 /* @var $content string */
 ?>
 
+<body class="skin-blue">
 <header class="main-header">
 
     <?= Html::a('<span class="logo-mini">SIPRS</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>

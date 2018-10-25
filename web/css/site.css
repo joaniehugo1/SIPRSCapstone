@@ -119,6 +119,14 @@ green .main-sidebar {
 }
 
 .baptism-name {
+    text-align: center;     
+}
+.confirmation-name{
     text-align: center;
 }
-
+.death-name{
+    text-align: center;
+}
+.marriage-name{
+    text-align: center;
+}
