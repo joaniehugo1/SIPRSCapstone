@@ -913,8 +913,11 @@ green .main-sidebar {
   .col-xs-offset-0 {
     margin-left: 0;
   }
+
 .baptism-name {
     text-align: center;
+    text-align: right;
+    text-align: left;
 }
 
 .akong-papa {
@@ -923,5 +926,6 @@ green .main-sidebar {
 }
 .mama-naku {
     margin-top: 20px; 
-    margin-right: 10%;
+    margin-right: 10px;
 }
+

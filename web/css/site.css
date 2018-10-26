@@ -118,6 +118,10 @@ green .main-sidebar {
     background-color: orange;
 }
 
+.background{
+    background: url('https://i1.trekearth.com/photos/43799/te.jpg')
+}
+
 .baptism-name {
     text-align: center;     
 }
