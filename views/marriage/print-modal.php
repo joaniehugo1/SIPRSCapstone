@@ -2,14 +2,22 @@
 use yii\helpers\Html;
 
 ?>
-<?= Html::a('Print', ['print-modal', 'id' => $model->id], ['class' => 'btn btn-primary', 'onClick' => 'print()']) ?>
+<?= Html::a('Print', ['print-modal', 'id' => $model->id], ['class' => 'btn btn-primary', 'onClick' => '___print()']) ?>
 
-<div id="_print" style="color: #e21236;">
-    <table style="border: none;width: 85%;margin: 0 auto;margin-bottom: 20px">
+<div id="__print" style="position: relative;text-align: center;width: 816px;height: 1056px;margin: 0 auto;">
+    <img src="http://localhost/siprsystem/web/img/marriage.png" style="width: 100%;">
+    <table style="border: none;width: 80%;margin: 0 auto;margin-bottom: 20px;position: absolute;top: 90px;right: 0;left: 0;">
       <tbody>
         <tr>
+          <td style="text-align: center;">
+            <img src="../../img/cert_ma-01.png" style="width: 325px;border-bottom: 2px solid;">
+          <br>
+          <br>
+          </td>
+        </tr>
+        <tr>
           <td style="text-align: center;font-size: 20px;">
-            <div>
+            <div style="color: #e21236;">
             Church of <span style="color: #e21236;"><span style="color:#000;text-decoration: underline;">&nbsp&nbsp <?= $model['attributes']['parish_name'] ?> &nbsp&nbsp</span></span><br>
             Place <span style="color:#000;text-decoration: underline;">&nbsp&nbsp Tubigon &nbsp&nbsp</span> Province <span style="color:#000;text-decoration: underline;">&nbsp&nbsp Bohol &nbsp&nbsp</span>
             <br>
@@ -24,10 +32,10 @@ use yii\helpers\Html;
         
       </tbody>
     </table>
-    <table style="border: none;width: 85%;margin: 0 auto;margin-bottom: 20px;font-size: 20px;">
+    <table style="border: none;width: 80%;margin: 0 auto;margin-bottom: 20px;position: absolute;top: 300px;right: 0;left: 0;font-size: 20px;color: #e21236;">
         <tbody>
             <tr>
-                <td style="text-align: left;width: 83%;float: right;">
+                <td style="text-align: left;width: 80%;float: right;">
                     Age <span style="color:#000;text-decoration: underline;margin-right: 10px;">&nbsp&nbsp <?= date('Y')-date('Y',strtotime($groom['attributes']['birth_date'])) ?> yrs. old &nbsp&nbsp</span>
                 </td>
                 <td style="text-align: left;width: 50%;">
@@ -35,7 +43,7 @@ use yii\helpers\Html;
                 </td>
             </tr>
             <tr>
-                <td style="text-align: left;width: 83%;float: right;">
+                <td style="text-align: left;width: 80%;float: right;">
                     Nationality <span style="color:#000;text-decoration: underline;margin-right: 10px;">&nbsp&nbsp <?= $groom['attributes']['nationality'] ?> &nbsp&nbsp</span>
                 </td>
                 <td style="text-align: left;width: 50%;">
@@ -43,7 +51,7 @@ use yii\helpers\Html;
                 </td>
             </tr> 
             <tr>
-                <td style="text-align: left;width: 83%;float: right;">
+                <td style="text-align: left;width: 80%;float: right;">
                     Residence <span style="color:#000;text-decoration: underline;margin-right: 10px;">&nbsp&nbsp <?= $groom['attributes']['birth_place'] ?> &nbsp&nbsp</span>
                 </td>
                 <td style="text-align: left;width: 50%;">
@@ -51,7 +59,7 @@ use yii\helpers\Html;
                 </td>
             </tr>
             <tr>
-                <td style="text-align: left;width: 83%;float: right;">
+                <td style="text-align: left;width: 80%;float: right;">
                     Father <span style="color:#000;text-decoration: underline;margin-right: 10px;">&nbsp&nbsp <?= $groom['attributes']['fathers_name'] ?> &nbsp&nbsp</span>
                 </td>
                 <td style="text-align: left;width: 50%;">
@@ -59,7 +67,7 @@ use yii\helpers\Html;
                 </td>
             </tr>
             <tr>
-                <td style="text-align: left;width: 83%;float: right;">
+                <td style="text-align: left;width: 80%;float: right;">
                     Mother <span style="color:#000;text-decoration: underline;margin-right: 10px;">&nbsp&nbsp <?= $groom['attributes']['mothers_name'] ?> &nbsp&nbsp</span>
                 </td>
                 <td style="text-align: left;width: 50%;">
@@ -68,19 +76,19 @@ use yii\helpers\Html;
             </tr>
         </tbody>
     </table>
-    <table style="border: none;width: 85%;margin: 0 auto;margin-bottom: 20px;font-size: 20px;">
+    <table style="border: none;width: 80%;margin: 0 auto;margin-bottom: 20px;position: absolute;top: 443px;right: 0;left: 0;font-size: 20px;color: #e21236;">
         <tbody>
             <tr>
                 <td style="text-align: center;">
                     <br>
-                    were united in<br><br>
-                    <span style="font-size: 35px;"> Holy Matrimony</span><br><br>
+                    were united in<br>
+                    <img src="../../img/holy.png" style="width: 45%;"><br>
                     according to rites of the Holy Roman Catholic Church<br>
                 </td>
             </tr>
         </tbody>
     </table>
-    <table style="border: none;width: 85%;margin: 0 auto;margin-bottom: 20px;font-size: 20px;text-align: center;">
+    <table style="border: none;width: 80%;margin: 0 auto;margin-bottom: 20px;position: absolute;top: 604px;right: 0;left: 0;font-size: 20px;color: #e21236;">
         <tbody>
             <tr>
                 <td>
@@ -101,7 +109,7 @@ use yii\helpers\Html;
                 <?= date('m-d-y',strtotime($model['attributes']['exhibited_date'])) ?>
             </div>
                 <div style="float: right;text-align: center;margin-right: 28px;font-size: 20px;">
-                    <div style="width: 260px;border-bottom: 1px solid #000;text-align: center;"><?= $model['attributes']['parish_priest'] ?></div>
+                    <div style="width: 260px;border-bottom: 1px solid #000;text-align: center; color:#000;"><?= $model['attributes']['parish_priest'] ?></div>
                     PARISH PRIEST
                 </div>
             </td>
@@ -109,6 +117,16 @@ use yii\helpers\Html;
         </tbody>
     </table>
 </div>
+<script type="text/javascript">
+  function ___print(){
+     var div = document.getElementById('__print');
+        newWin = window.open("");
+        newWin.document.write(div.outerHTML);
 
+        newWin.print();
 
-
+        newWin.onfocus=function(){ 
+          newWin.close();
+        }
+  }
+</script>
