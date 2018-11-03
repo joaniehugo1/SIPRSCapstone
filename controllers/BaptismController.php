@@ -81,7 +81,9 @@ class BaptismController extends Controller
 
     public function actionPrintModal($id) {
         $model = Baptism::findOne(['id' => $id]);
-        return $this->render('print-modal', ['model' => $model]);
+        $persons = Persons::find()->where(['id' => $model['attributes']['persons_id']])->one();
+        $priest = Priest::find()->where(['id' => $model['attributes']['officiating_priest']])->one();
+        return $this->render('print-modal', ['model' => $model, 'persons' => $persons, 'priest' => $priest]);
     }
 
     /**
@@ -156,6 +158,7 @@ class BaptismController extends Controller
      * @return Baptism the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     protected function findModel($id)
     {
         if (($model = Baptism::findOne($id)) !== null) {

@@ -40,6 +40,28 @@ body {
     font-size: 3em !important;
 }
 
+div.trial-print
+  {
+      position : 50px;
+  }
+
+.baptism-name {
+    text-align: center;
+    text-align: right;
+    text-align: left;
+}
+
+.akong-papa {
+    margin-top: 20px; 
+    margin-left: 10px;
+}
+.mama-naku {
+    margin-top: 20px; 
+    margin-right: 10px;
+}
+
+
+
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
@@ -913,19 +935,4 @@ green .main-sidebar {
   .col-xs-offset-0 {
     margin-left: 0;
   }
-
-.baptism-name {
-    text-align: center;
-    text-align: right;
-    text-align: left;
-}
-
-.akong-papa {
-    margin-top: 20px; 
-    margin-left: 10px;
-}
-.mama-naku {
-    margin-top: 20px; 
-    margin-right: 10px;
-}
 

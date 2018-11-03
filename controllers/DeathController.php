@@ -144,7 +144,9 @@ class DeathController extends Controller
     }
     public function actionPrintModal($id) {
         $model = Death::findOne(['id' => $id]);
-        return $this->render('print-modal', ['model' => $model]);
+        $person = Persons::find()->where(['id' => $model['attributes']['persons_id']])->one();
+        $priest = Priest::find()->where(['id' => $model['attributes']['parish_priest']])->one();
+        return $this->render('print-modal', ['model' => $model,'priest' => $priest, 'person' => $person]);
     }
 
     /**

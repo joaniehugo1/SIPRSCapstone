@@ -158,7 +158,9 @@ class MarriageController extends Controller
     }
     public function actionPrintModal($id) {
         $model = Marriage::findOne(['id' => $id]);
-        return $this->render('print-modal', ['model' => $model]);
+        $groom = Persons::find()->where(['id' => $model['attributes']['groom_persons_id']])->one();
+        $bride = Persons::find()->where(['id' => $model['attributes']['bride_persons_id']])->one();
+        return $this->render('print-modal', ['model' => $model,'groom' => $groom, 'bride' => $bride]);
     }
 
     /**

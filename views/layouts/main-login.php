@@ -17,8 +17,7 @@ dmstr\web\AdminLteAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="login-page"  style="background-color: #808000">
-<!-- <img src="https://i1.trekearth.com/photos/43799/te.jpg" style="display:inline; horizontal-align: top; height:500px;"> -->
+<body class="login-page" style="background: url(../../img/siprs.png) no-repeat;background-position: center;background-size: cover;">
 
 <?php $this->beginBody() ?>
 

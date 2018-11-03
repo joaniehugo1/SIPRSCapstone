@@ -142,7 +142,8 @@ class ConfirmationController extends Controller
     }
     public function actionPrintModal($id) {
         $model = Confirmation::findOne(['id' => $id]);
-        return $this->render('print-modal', ['model' => $model]);
+        $persons = Persons::find()->where(['id' => $model['attributes']['persons_id']])->one();
+        return $this->render('print-modal', ['model' => $model, 'person' => $persons]);
     }
 
     /**
