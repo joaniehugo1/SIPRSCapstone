@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use app\models\Death;
+use yii\helpers\ArrayHelper;
+use app\models\Cemetery;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Death */
@@ -63,7 +65,9 @@ use app\models\Death;
                 'format' => 'yyyy-mm-dd'
             ]
     ]); ?>
-    <?= $form->field($model, 'municipal_cemetery')->textInput() ?>
+    <?= $form->field($model, 'municipal_cemetery')->dropDownList(
+        ArrayHelper::map(Cemetery::find()->all(),'id','name'),['prompt'=>'Select']
+    )?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

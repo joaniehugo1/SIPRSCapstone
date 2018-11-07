@@ -62,7 +62,8 @@ class BaptismSearch extends Baptism
         // grid filtering conditions
 
         $query->orFilterWhere(['like', 'persons_id', $this->globalSearch])
-        ->orFilterWhere(['like', 'god_parents', $this->globalSearch]);
+        ->orFilterWhere(['like', 'god_parents', $this->globalSearch])
+        ->orFilterWhere(['like', 'baptism_date', $this->globalSearch]);
 
         return $dataProvider;
     }

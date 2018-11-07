@@ -5,24 +5,21 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Persons;
+use app\models\Cemetery;
 
 /**
- * PersonsSearch represents the model behind the search form of `app\models\Persons`.
+ * CemeterySearch represents the model behind the search form of `app\models\Cemetery`.
  */
-class PersonsSearch extends Persons
+class CemeterySearch extends Cemetery
 {
     /**
      * {@inheritdoc}
      */
-
-    public $globalSearch;
-    
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['name', 'fathers_name', 'mothers_name', 'nationality', 'gender', 'birth_date', 'birth_place', 'birth_date','globalSearch'], 'safe'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -44,7 +41,7 @@ class PersonsSearch extends Persons
      */
     public function search($params)
     {
-        $query = Persons::find();
+        $query = Cemetery::find();
 
         // add conditions that should always apply here
 
@@ -61,18 +58,12 @@ class PersonsSearch extends Persons
         }
 
         // grid filtering conditions
-        // $query->andFilterWhere([
-        //     'id' => $this->id,
-        //     'birth_date' => $this->birth_date,
-        // ]);
+        $query->andFilterWhere([
+            'id' => $this->id,
+        ]);
 
-        $query->orFilterWhere(['like', 'name', $this->globalSearch])
-            ->orFilterWhere(['like', 'fathers_name', $this->globalSearch])
-            ->orFilterWhere(['like', 'mothers_name', $this->globalSearch])
-            ->orFilterWhere(['like', 'nationality', $this->globalSearch])
-            ->orFilterWhere(['like', 'gender', $this->globalSearch])
-            ->orFilterWhere(['like', 'birth_place', $this->globalSearch])
-            ->orFilterWhere(['like', 'birth_date', $this->globalSearch]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
+
         return $dataProvider;
     }
 }

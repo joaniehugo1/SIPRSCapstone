@@ -8,6 +8,7 @@ use app\models\Persons;
 use app\models\Priest;
 use app\models\DeathSearch;
 use yii\web\Controller;
+use app\models\Cemetery;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -92,6 +93,7 @@ class DeathController extends Controller
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         $model->persons_id = $persons->id;
         $model->parish_priest = $priest->id;
+        $model->name = $cemetery->id;
         $model->parish_name = "St. Isidore The Farmer Parish";
         $model->municipal_cemetery = "Tubigon Catholic Cemetery";
         // $model->municipal_cemetery = $death->municipal_cemetery;
@@ -119,7 +121,11 @@ class DeathController extends Controller
         $persons = Persons::find()->where(['id' => $personsId])->one();
         $priest = Priest::find()->where(['priest_role' => 0])->one();
         $model->parish_priest = $priest->parish_priest;
-
+        $model->persons_id = $persons->id;
+        $model->parish_priest = $priest->id;
+        $model->parish_name = "St. Isidore The Farmer Parish";
+        $model->municipal_cemetery = "Tubigon Catholic Cemetery";
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
